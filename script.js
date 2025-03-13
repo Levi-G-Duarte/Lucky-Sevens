@@ -64,14 +64,16 @@
 
 // LUCKY SEVENS PROGRAM
 
-let moneyValue = 0;
+let moneyValue = 100;
 let lowBet = 5;
 let mediumBet = 10;
 let highBet = 20;
 let maxBet = 50;
+let ultraBet = 100;
+
 
 function rollDice() {
-    const numOfDice = document.getElementById('numOfDice').value;
+    // const numOfDice = document.getElementById('numOfDice').value;
     const diceResult = document.getElementById('diceResult');
     const diceImages = document.getElementById('diceImages');
     const gameOutcome = document.getElementById('gameOutcome');
@@ -95,7 +97,6 @@ function rollDice() {
     values.forEach(value => {
         counts[value - 1]++;
     });
-
     // Check different winning conditions
 
     // Full House
@@ -106,14 +107,33 @@ function rollDice() {
         gameOutcome.style.color = "green";
         console.log('FULL HOUSE')
     }
-    // 3 of a kind
-    else if (counts[0] === 3 || counts[1] === 3 || counts[2] === 3 || counts[3] === 3 || counts[4] === 3 || counts[5] === 3 || counts[6] === 3) {
-        console.log('3 OF A KIND')
-        moneyValue += 10;
+    // ULTRA YAHTZEE
+    else if (counts[0] === 6 || counts[1] === 6 || counts[2] === 6 || counts[3] === 6 || counts[4] === 6 || counts[5] === 6 || counts[6] === 6) {
+        moneyValue += ultraBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 3 of a Kind!";
+        gameOutcome.textContent = "You've Won: ULTRA YAHTZEE"
+        gameOutcome.style.color = 'green';
+    }
+    // YAHTZEE
+    else if (counts[0] === 5 || counts[1] === 5 || counts[2] === 5 || counts[3] === 5 || counts[4] === 5 || counts[5] === 5 || counts[6] === 5){
+        moneyValue += mediumBet;
+        wallet.textContent = `$${moneyValue}`;
+        gameOutcome.textContent = "You've Won: YAHTZEE"
+        gameOutcome.style.color = 'green';
+    }
+    // 6-Straight
+    // else if (isUltraStraight(values)) {
+    //     moneyValue += ultraBet;
+    //     wallet.textContent = `$${moneyValue}`
+    //     gameOutcome.textContent = "You've Won: 6-straight!";
+    //     gameOutcome.style.color = "green";
+    // }
+    // 5-straight
+    else if (isStraight(values)) {
+        moneyValue += maxBet;
+        wallet.textContent = `$${moneyValue}`;
+        gameOutcome.textContent = "You've Won: 5-straight!";
         gameOutcome.style.color = "green";
-
     }
     // 4 of a Kind
     else if (counts[0] === 4 || counts[1] === 4 || counts[2] === 4 || counts[3] === 4 || counts[4] === 4 || counts[5] === 4 || counts[6] === 4) {
@@ -122,22 +142,17 @@ function rollDice() {
         gameOutcome.textContent = "You've Won: 4 of a Kind!"
         gameOutcome.style.color = 'green';
     }
-    // YAHTZEE
-    else if (counts[0] === 5 || counts[1] === 5 || counts[2] === 5 || counts[3] === 5 || counts[4] === 5 || counts[5] === 5 || counts[6] === 5){
-        moneyValue += mediumBet;
+    // 3 of a kind
+    else if (counts[0] === 3 || counts[1] === 3 || counts[2] === 3 || counts[3] === 3 || counts[4] === 3 || counts[5] === 3 || counts[6] === 3) {
+        console.log('3 OF A KIND')
+        moneyValue += lowBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 4 of a Kind!"
-        gameOutcome.style.color = 'green';
-    }
-    // 5-straight
-    else if (isStraight(values)) {
-        moneyValue += maxBet;
-        wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 5-straight!";
+        gameOutcome.textContent = "You've Won: 3 of a Kind!";
         gameOutcome.style.color = "green";
+
     }
     else {
-        moneyValue -= 10;
+        moneyValue -= 50;
         wallet.textContent = `$${moneyValue}`;
         gameOutcome.textContent = "You lost";
         gameOutcome.style.color = "red";
@@ -150,6 +165,8 @@ function isFullHouse(counts) {
     const pair = counts.filter(count => count === 2).length === 1;
     return threeOfAKind && pair;
 }
+
+// function isUltraStraight(values)
 
 // Function to check for a 5-straight sequence
 function isStraight(diceValues) {

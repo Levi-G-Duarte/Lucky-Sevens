@@ -4,7 +4,7 @@ body{
     background-color: grey;
     margin: 10px
 }
-h1{
+.Title{
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;

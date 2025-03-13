@@ -8,13 +8,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
-</style>
+        @import url('https://fonts.googleapis.com/css2?family=Kings&display=swap');
     </style>
 </head>
 <body>
 
     <div id="container">
-        <h1>Lucky Sevens</h1>
+        <h1 class="Title">Lucky Sevens</h1>
         <div id = "Score-Class">
             <h2>SCORE CLASS</h2>
             <p>Straight's</p>
@@ -26,17 +26,17 @@
         </div>
         <div id="user-input">
             <p>Enter your # of dice:</p>
-            <input id = "numOfDice" type="number" min="1" max="6" value="6" disabled>
+            <!-- <input id = "numOfDice" type="number" min="1" max="6" value="6" disabled> -->
         </div>
         <button onclick="rollDice()">ROLL DICE</button>
-        <div id="diceResult"></div>
-        <div id="diceImages"></div>
-
-        <div id="gameOutcome">
-
+            <div id="diceResult"></div>
+            <div id="diceImages"></div>
+            <div id="gameOutcome"></div>
+        <div class="Pocket">
+            <h1 class="Wallet">Wallet</h1>
+            <p><span id="moneyValue"></span></p>
         </div>
-        <div id="moneyValue"></div>
     </div>
-</body>
     <script src="script.js"></script>
+</body>
 </html>
