@@ -5,32 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Gamble</title>
     <link rel="stylesheet" href="styles.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Kings&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display&family=Bebas+Neue&family=Cinzel&family=Luckiest+Guy&family=Press+Start+2P&family=Monoton&family=Racing+Sans+One&display=swap');
     </style>
 </head>
 <body>
 
     <div id="container">
         <h1 class="Title">Lucky Sevens</h1>
-        <div id = "Score-Class">
-            <h2>SCORE CLASS</h2>
-            <p>Straight's</p>
-            <p>Lucky</p>
-            <p>House</p>
-            <p>1/6</p>
-            <p>CupHead</p>
-            <p>Tax Fraud</p>
-        </div>
-        <div id="user-input">
-            <p>Enter your # of dice:</p>
-            <!-- <input id = "numOfDice" type="number" min="1" max="6" value="6" disabled> -->
+        <div class = "Welcome">
+            <h2>WELCOME</h2>
+            <p>
+                This is Luck Sevens, a Yahtzee inspired game that fuels your gambling addiction
+            </p>
         </div>
         <button onclick="rollDice()">ROLL DICE</button>
             <div id="diceResult"></div>
-            <div id="diceImages"></div>
+            <div id="diceImages" class="diceImages"></div>
             <div id="gameOutcome"></div>
         <div class="Pocket">
             <h1 class="Wallet">Wallet</h1>

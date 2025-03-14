@@ -1,12 +1,12 @@
 body{
     text-align: center;
     color:red;
-    background-color: grey;
-    margin: 10px
+    background-color: rgb(255, 203, 99);
+    margin: 10px;
 }
 .Title{
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
+    font-family: "Kings", cursive;
+    font-weight: 600;
     font-style: normal;
     font-size: 3rem;
     background: linear-gradient(orange,rgb(255, 204, 0),  rgb(255, 227, 88), rgba(255, 255, 0, 0.134));
@@ -15,6 +15,11 @@ body{
     width: 40vw;
     margin:auto;
     padding:auto;
+}
+.Welcome h2{
+    font-family: 'Pacifico', cursive;
+    font-weight: 500;
+    font-style: normal;
 }
 input{
     font-size: 3rem;
@@ -38,6 +43,13 @@ button:hover{
 }
 button:active{
     color: rgb(178, 178, 178)
+}
+
+#diceImages{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 #gameOutcome{
