@@ -6,7 +6,7 @@ body{
 }
 .Title{
     font-family: "Kings", cursive;
-    font-weight: 600;
+    font-weight: 800;
     font-style: normal;
     font-size: 3rem;
     background: linear-gradient(orange,rgb(255, 204, 0),  rgb(255, 227, 88), rgba(255, 255, 0, 0.134));
@@ -18,8 +18,17 @@ body{
 }
 .Welcome h2{
     font-family: 'Pacifico', cursive;
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
+    letter-spacing: 4px;
+}
+.Welcome{
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 600px;
+    background-color: rgba(255, 204, 0, 0.59);
 }
 input{
     font-size: 3rem;
@@ -28,21 +37,21 @@ button{
     font-family: "Paytone One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: rgb(0, 0, 0);
-    background:linear-gradient(orange, rgb(255, 227, 11), orange);
+    color: rgb(255, 162, 0);
+    background-color: black;
     border:none;
     margin:10px;
     font-size:1.5rem;
     border-radius: 20px;
 }
 button:hover{
-    color: rgb(110, 110, 110);
-    background:linear-gradient(rgb(255, 183, 49), rgb(225, 199, 0), rgb(255, 183, 49));
+    color: rgb(255, 162, 0);
+    background-color: rgb(116, 116, 116);
     /* background-color: rgb(255, 98, 98); */
     border:none
 }
 button:active{
-    color: rgb(178, 178, 178)
+    color: rgb(0, 0, 0)
 }
 
 #diceImages{

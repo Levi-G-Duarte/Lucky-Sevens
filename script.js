@@ -22,6 +22,8 @@ let highBet = 20;
 let maxBet = 50;
 let ultraBet = 100;
 
+let lostBet = 25;
+
 
 function rollDice() {
     // const numOfDice = document.getElementById('numOfDice').value;
@@ -48,13 +50,14 @@ function rollDice() {
     values.forEach(value => {
         counts[value - 1]++;
     });
+
     // Check different winning conditions
 
     // Full House
     if (isFullHouse(counts)) {
-        moneyValue += maxBet;
+        moneyValue += mediumBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: Full House!";
+        gameOutcome.textContent = `You've Won: Full House! +$${mediumBet}`;
         gameOutcome.style.color = "green";
         updateMoneyDisplay();
         console.log('FULL HOUSE')
@@ -63,15 +66,15 @@ function rollDice() {
     else if (counts[0] === 6 || counts[1] === 6 || counts[2] === 6 || counts[3] === 6 || counts[4] === 6 || counts[5] === 6 || counts[6] === 6) {
         moneyValue += ultraBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: ULTRA YAHTZEE"
-        updateMoneyDisplay();
+        gameOutcome.textContent = `You've Won: ULTRA YAHTZEE +$${ultraBet}`
         gameOutcome.style.color = 'green';
+        updateMoneyDisplay();
     }
     // YAHTZEE
     else if (counts[0] === 5 || counts[1] === 5 || counts[2] === 5 || counts[3] === 5 || counts[4] === 5 || counts[5] === 5 || counts[6] === 5){
-        moneyValue += mediumBet;
+        moneyValue += maxBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: YAHTZEE"
+        gameOutcome.textContent = `You've Won: YAHTZEE +$${maxBet}`;
         gameOutcome.style.color = 'green';
         updateMoneyDisplay();
     }
@@ -79,14 +82,14 @@ function rollDice() {
     else if (isUltraStraight(values)) {
         moneyValue += ultraBet;
         wallet.textContent = `$${moneyValue}`
-        gameOutcome.textContent = "You've Won: 6-straight!";
+        gameOutcome.textContent = `You've Won: 6-straight! +$${ultraBet}`;
         gameOutcome.style.color = "green";
     }
     // 5-straight
     else if (isStraight(values)) {
-        moneyValue += maxBet;
+        moneyValue += highBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 5-straight!";
+        gameOutcome.textContent = `You've Won: 5-straight! +$${highBet}`;
         gameOutcome.style.color = "green";
         updateMoneyDisplay();
     }
@@ -94,7 +97,7 @@ function rollDice() {
     else if (counts[0] === 4 || counts[1] === 4 || counts[2] === 4 || counts[3] === 4 || counts[4] === 4 || counts[5] === 4 || counts[6] === 4) {
         moneyValue += mediumBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 4 of a Kind!"
+        gameOutcome.textContent = `You've Won: 4 of a Kind! +$${mediumBet}`;
         gameOutcome.style.color = 'green';
         updateMoneyDisplay();
     }
@@ -103,15 +106,15 @@ function rollDice() {
         console.log('3 OF A KIND')
         moneyValue += lowBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You've Won: 3 of a Kind!";
+        gameOutcome.textContent = `You've Won: 3 of a Kind! +$${lowBet}`;
         gameOutcome.style.color = "green";
         updateMoneyDisplay();
     }
     // LOSE
     else {
-        moneyValue -= 50;
+        moneyValue -= lostBet;
         wallet.textContent = `$${moneyValue}`;
-        gameOutcome.textContent = "You lost";
+        gameOutcome.textContent = `YOU LOST! -$${lostBet}`;
         gameOutcome.style.color = "red";
         updateMoneyDisplay();
     }
@@ -124,7 +127,7 @@ function isFullHouse(counts) {
     return threeOfAKind && pair;
 }
 
-// function isUltraStraight(values)
+// Function to check for a 6-straight sequence
 function isUltraStraight(diceValues) {
     const uniqueValues = [...new Set(diceValues)].sort();
     if (uniqueValues.length === 6) {
