@@ -22,14 +22,15 @@ let highBet = 20;
 let maxBet = 50;
 let ultraBet = 100;
 
-let lostBet = 25;
+let lostBet = 10;
 
 
 function rollDice() {
     // const numOfDice = document.getElementById('numOfDice').value;
-    const diceResult = document.getElementById('diceResult');
+    // const diceResult = document.getElementById('diceResult');
     const diceImages = document.getElementById('diceImages');
     const gameOutcome = document.getElementById('gameOutcome');
+    const rollButton = document.getElementById('rollButton');
     const wallet = document.getElementById('moneyValue');
     const values = [];
     const images = [];
@@ -42,7 +43,7 @@ function rollDice() {
     }
 
     // Display results
-    diceResult.textContent = `${values.join(", ")}`;
+    // diceResult.textContent = `${values.join(", ")}`;
     diceImages.innerHTML = images.join('    ');
 
     // Count occurrences of each die value
@@ -84,6 +85,7 @@ function rollDice() {
         wallet.textContent = `$${moneyValue}`
         gameOutcome.textContent = `You've Won: 6-straight! +$${ultraBet}`;
         gameOutcome.style.color = "green";
+        updateMoneyDisplay();
     }
     // 5-straight
     else if (isStraight(values)) {
